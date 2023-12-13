@@ -1,42 +1,45 @@
-0x19. C - Stacks, Queues - LIFO, FIFO
-C
+# 0x19. C - Stacks, Queues - LIFO, FIFO
+
 Group project
 Algorithm
-Data structure
- By: Julien Barbier
- Weight: 2
- Project to be done in teams of 2 people (your team: Muluken Kinfe)
- Project will start Dec 12, 2023 6:00 AM, must end by Dec 15, 2023 6:00 AM
- Checker was released at Dec 13, 2023 12:00 AM
- An auto review will be launched at the deadline
+* Data structure
+* By: Julien Barbier
+* Weight: 2
+* Project to be done in teams of 2 people (your team: Muluken Kinfe)
+* Project will start Dec 12, 2023 6:00 AM, must end by Dec 15, 2023 6:00 AM
+* Checker was released at Dec 13, 2023 12:00 AM
+* An auto review will be launched at the deadline
 
 
 
 Resources
 Read or watch:
 
-Google
-How do I use extern to share variables between source files in C?
-Stacks and Queues in C
-Stack operations
-Queue operations
-Learning Objectives
+# Google https://www.google.com/webhp?q=stack%20and%20queue
+# How do I use extern to share variables between source files in C?
+# Stacks and Queues in C
+# Stack operations
+# Queue operations
+
+# Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
-General
-What do LIFO and FIFO mean
-What is a stack, and when to use it
-What is a queue, and when to use it
-What are the common implementations of stacks and queues
-What are the most common use cases of stacks and queues
-What is the proper way to use global variables
+# General
+* What do LIFO and FIFO mean
+* What is a stack, and when to use it
+* What is a queue, and when to use it
+* What are the common implementations of stacks and queues
+* What are the most common use cases of stacks and queues
+* What is the proper way to use global variables
+
 Copyright - Plagiarism
 You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
 You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
 You are not allowed to publish any content of this project.
 Any form of plagiarism is strictly forbidden and will result in removal from the program.
-Requirements
-General
+
+# Requirements
+# General
 Allowed editors: vi, vim, emacs
 All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=c89
 All your files should end with a new line
@@ -95,42 +98,6 @@ We strongly encourage you to work all together on a set of tests
 
 The Monty language
 Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
-
-Monty byte code files
-
-Files containing Monty byte codes usually have the .m extension. Most of the industry uses this standard but it is not required by the specification of the language. There is not more than one instruction per line. There can be any number of spaces before or after the opcode and its argument:
-
-julien@ubuntu:~/monty$ cat -e bytecodes/000.m
-push 0$
-push 1$
-push 2$
-  push 3$
-                   pall    $
-push 4$
-    push 5    $
-      push    6        $
-pall$
-julien@ubuntu:~/monty$
-Monty byte code files can contain blank lines (empty or made of spaces only, and any additional text after the opcode or its required argument is not taken into account:
-
-julien@ubuntu:~/monty$ cat -e bytecodes/001.m
-push 0 Push 0 onto the stack$
-push 1 Push 1 onto the stack$
-$
-push 2$
-  push 3$
-                   pall    $
-$
-$
-                           $
-push 4$
-$
-    push 5    $
-      push    6        $
-$
-pall This is the end of our program. Monty is awesome!$
-julien@ubuntu:~/monty$
-The monty program
 
 Usage: monty file
 where file is the path to the file containing Monty byte code
