@@ -1,23 +1,54 @@
-#include "monty.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-/**
-* f_pop - Removes the top element of the stack.
-* @head: Stack head
-* @counter: Line number
-* Return: No return
-*/
-void f_pop(stack_t **head, unsigned int counter)
+#define STACK_SIZE 100
+
+typedef struct
 {
-if (*head == NULL)
+int items[STACK_SIZE];
+int top;
+} Stack;
+
+void push(Stack *stack, int value)
 {
-fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
-fclose(bus.file);
-free(bus.content);
-free_stack(*head);
+if (stack->top < STACK_SIZE - 1)
+{
+stack->top++;
+stack->items[stack->top] = value;
+}
+else
+{
+printf("Error: Stack overflow\n");
 exit(EXIT_FAILURE);
 }
+}
 
-stack_t *current = *head;
-*head = current->next;
-free(current);
+int pop(Stack *stack)
+{
+if (stack->top >= 0)
+{
+int value = stack->items[stack->top];
+stack->top--;
+return value;
+}
+else
+{
+printf("Error: can't pop an empty stack\n");
+exit(EXIT_FAILURE);
+}
+}
+
+int main(void)
+{
+Stack stack;
+stack.top = -1;
+
+push(&stack, 1);
+push(&stack, 2);
+push(&stack, 3);
+
+printf("Before popping: %d\n", pop(&stack));
+printf("After popping: %d\n", pop(&stack));
+
+return (0);
 }
