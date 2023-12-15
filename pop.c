@@ -1,54 +1,23 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#define STACK_SIZE 100
-
-typedef struct
+#include "monty.h"
+/**
+ * f_pop - prints the top
+ * @head: stack head
+ * @counter: line_number
+ * Return: no return
+*/
+void f_pop(stack_t **head, unsigned int counter)
 {
-int items[STACK_SIZE];
-int top;
-} Stack;
+	stack_t *h;
 
-void push(Stack *stack, int value)
-{
-if (stack->top < STACK_SIZE - 1)
-{
-stack->top++;
-stack->items[stack->top] = value;
-}
-else
-{
-printf("Error: Stack overflow\n");
-exit(EXIT_FAILURE);
-}
-}
-
-int pop(Stack *stack)
-{
-if (stack->top >= 0)
-{
-int value = stack->items[stack->top];
-stack->top--;
-return value;
-}
-else
-{
-printf("Error: can't pop an empty stack\n");
-exit(EXIT_FAILURE);
-}
-}
-
-int main(void)
-{
-Stack stack;
-stack.top = -1;
-
-push(&stack, 1);
-push(&stack, 2);
-push(&stack, 3);
-
-printf("Before popping: %d\n", pop(&stack));
-printf("After popping: %d\n", pop(&stack));
-
-return (0);
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
+		fclose(bus.file);
+		free(bus.content);
+		free_stack(*head);
+		exit(EXIT_FAILURE);
+	}
+	h = *head;
+	*head = h->next;
+	free(h);
 }
